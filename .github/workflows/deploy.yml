@@ -1,17 +1,18 @@
 name: Deploy Maven Package
 
 on:
-  workflow_dispatch:  # This allows triggering from API
+  workflow_dispatch:  # Trigger manually or via API
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     permissions:
-      contents: read
-      packages: write
+      contents: read    # Needed for checkout
+      packages: write   # Needed to publish packages
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Java
@@ -21,6 +22,20 @@ jobs:
           distribution: 'temurin'
           server-id: github
           settings-path: ${{ github.workspace }}
+
+      - name: Configure Maven settings for GitHub Packages
+        run: |
+          cat > $GITHUB_WORKSPACE/settings.xml <<EOF
+          <settings>
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${{ github.actor }}</username>
+                <password>${{ secrets.GITHUB_TOKEN }}</password>
+              </server>
+            </servers>
+          </settings>
+          EOF
 
       - name: Deploy to GitHub Packages
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
