@@ -12,14 +12,14 @@
 <!--	<artifactId>sample</artifactId>-->
 <!--	<version>0.0.1-SNAPSHOT</version>-->
 <!--	<name>sample</name>-->
-	<groupId>com.spring</groupId>
+	<groupId>com.rahulrajacoherent</groupId>
 	<artifactId>libentityservice</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<distributionManagement>
 		<repository>
-			<id>gitlab-maven</id>
-			<url>https://scm.coherent.in/api/v4/projects/363/packages/maven/</url>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/rahulrajacoherent/lib-service</url>
 		</repository>
 	</distributionManagement>
 	<description>DMS Entity Library Service</description>
