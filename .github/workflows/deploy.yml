@@ -41,8 +41,9 @@ jobs:
             </servers>
           </settings>
           EOF
+
       - name: Update GitLab dependency to latest version
-          run: |
+        run: |
             mvn versions:use-latest-versions \
               -Dincludes=org.example:dynamic-service \
               -DgenerateBackupPoms=false \
