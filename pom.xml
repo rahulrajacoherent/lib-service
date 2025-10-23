@@ -14,7 +14,7 @@
 <!--	<name>sample</name>-->
 	<groupId>com.rahulrajacoherent</groupId>
 	<artifactId>libentityservice</artifactId>
-	<version>1.0.22</version>
+	<version>1.0.23</version>
 	<packaging>jar</packaging>
 	<distributionManagement>
 		<repository>
